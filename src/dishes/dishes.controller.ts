@@ -25,7 +25,7 @@ export class DishesController {
 
     @Get(':id')
     @ApiResponse({status: 200, description: 'The found record', type: CreateDishDto})
-    async findOne(@Param('id') id: number): Promise<CreateDishDto> {
-        return await this.dishesService.findOne(+id);
+    async findOne(@Param('id') id: string): Promise<CreateDishDto> {
+        return await this.dishesService.findOne(id);
     }
 }

@@ -17,7 +17,7 @@ export class DishesService {
         return this.dishModel.find({}, { __v: 0 }).exec();
     }
 
-    async findOne(id: number): Promise<CreateDishDto> {
-        return this.dishModel.findOne({id: id}, { __v: 0 }).exec();
+    async findOne(id: string): Promise<CreateDishDto> {
+        return this.dishModel.findById(id, { __v: 0 }).exec();
     }
 }
