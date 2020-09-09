@@ -1,7 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {Schema} from "@nestjs/mongoose";
 
-@Schema()
 export class CreateCommentDto {
     @ApiProperty()
     readonly id: number;

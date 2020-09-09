@@ -13,19 +13,19 @@ export class DishesController {
     @Post()
     @ApiOperation({ summary: 'Create a dish' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
-    async create(@Body() createDishDto: CreateDishDto): Promise<Dish> {
+    async create(@Body() createDishDto: CreateDishDto): Promise<CreateDishDto> {
         return await this.dishesService.create(createDishDto);
     }
 
     @Get()
-    @ApiResponse({status: 200, description: 'The found all records', type: Dish})
-    async findAll(): Promise<Dish[]> {
+    @ApiResponse({status: 200, description: 'The found all records', type: CreateDishDto, isArray: true})
+    async findAll(): Promise<CreateDishDto[]> {
         return await this.dishesService.findAll();
     }
 
     @Get(':id')
-    @ApiResponse({status: 200, description: 'The found record', type: Dish})
-    async findOne(@Param('id') id: number): Promise<Dish> {
+    @ApiResponse({status: 200, description: 'The found record', type: CreateDishDto})
+    async findOne(@Param('id') id: number): Promise<CreateDishDto> {
         return await this.dishesService.findOne(+id);
     }
 }

@@ -2,10 +2,8 @@ import {Prop, Schema, SchemaFactory} from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import { Comment } from './comment.schema'
 
-@Schema()
+@Schema({versionKey: false})
 export class Dish extends Document {
-    @Prop()
-    id: number;
     @Prop()
     name: string;
     @Prop()

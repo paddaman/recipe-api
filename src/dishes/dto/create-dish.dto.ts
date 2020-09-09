@@ -1,11 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { CreateCommentDto } from './create-comment.dto'
-import {Schema} from "@nestjs/mongoose";
 
-@Schema()
 export class CreateDishDto {
     @ApiProperty()
-    readonly id: number;
+    readonly _id: string;
     @ApiProperty()
     readonly name: string;
     @ApiProperty()
@@ -18,6 +16,6 @@ export class CreateDishDto {
     readonly price: number;
     @ApiProperty()
     readonly description: string;
-    @ApiProperty()
+    @ApiProperty({type: CreateCommentDto, isArray: true})
     readonly comments: CreateCommentDto[];
 }
